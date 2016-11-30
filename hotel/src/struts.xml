@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+ <package name="customer" extends="struts-default">
+   <action name="*_*" class="action.{1}Action" method="{2}" >
+        <result name="returnToIndex">/index.jsp</result>
+        <!--******************以上为用户请求的处理**********************************-->
+        <!--********************************************************************-->
+        <!--******************以下为员工请求的处理********************************-->
+        <result name="employee_login_success">/Employee/EmployeeIndex.jsp</result>
+        <result name="employee_login_faliure">/index.jsp</result>
+   </action>
+ </package>
+</struts>    

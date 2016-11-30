@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
-<struts>
- <package name="customer" extends="struts-default">
-   <action name="*_*" class="action.{1}Action" method="{2}" >
-        <result name="returnToIndex">/hotel/index.jsp</result>
-   </action>
- </package>
-</struts>    
