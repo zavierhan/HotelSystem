@@ -11,7 +11,7 @@ public class Check implements java.io.Serializable {
 	// Fields
 
 	private Integer checkid;
-	private Employeeid employeeid;
+	private Employee employee;
 	private Room room;
 	private User user;
 	private Date timein;
@@ -25,9 +25,9 @@ public class Check implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Check(Employeeid employeeid, Room room, User user, Date timein,
+	public Check(Employee employee, Room room, User user, Date timein,
 			Date timeout, Integer status) {
-		this.employeeid = employeeid;
+		this.employee = employee;
 		this.room = room;
 		this.user = user;
 		this.timein = timein;
@@ -45,12 +45,12 @@ public class Check implements java.io.Serializable {
 		this.checkid = checkid;
 	}
 
-	public Employeeid getEmployeeid() {
-		return this.employeeid;
+	public Employee getEmployee() {
+		return this.employee;
 	}
 
-	public void setEmployeeid(Employeeid employeeid) {
-		this.employeeid = employeeid;
+	public void setEmployee(Employee employee) {
+		this.employee = employee;
 	}
 
 	public Room getRoom() {

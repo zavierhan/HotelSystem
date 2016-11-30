@@ -4,10 +4,10 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Employeeid entity. @author MyEclipse Persistence Tools
+ * Employee entity. @author MyEclipse Persistence Tools
  */
 
-public class Employeeid implements java.io.Serializable {
+public class Employee implements java.io.Serializable {
 
 	// Fields
 
@@ -19,11 +19,11 @@ public class Employeeid implements java.io.Serializable {
 	// Constructors
 
 	/** default constructor */
-	public Employeeid() {
+	public Employee() {
 	}
 
 	/** full constructor */
-	public Employeeid(String name, String password, Set checks) {
+	public Employee(String name, String password, Set checks) {
 		this.name = name;
 		this.password = password;
 		this.checks = checks;

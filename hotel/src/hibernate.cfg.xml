@@ -21,7 +21,7 @@
 		<mapping resource="entity/User.hbm.xml" />
 		<mapping resource="entity/Order.hbm.xml" />
 		<mapping resource="entity/Check.hbm.xml" />
-		<mapping resource="entity/Employeeid.hbm.xml" />
+		<mapping resource="entity/Employee.hbm.xml" />
 		<mapping resource="entity/Room.hbm.xml" />
 
 	</session-factory>

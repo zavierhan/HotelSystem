@@ -7,11 +7,11 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import util.HibernateSessionFactory;
-import entity.Employeeid;
+import entity.Employee;
 
 public class EmployeeDAO {
 	// 员工登录
-	public boolean employeeLogin(Employeeid employeeid) {
+	public boolean employeeLogin(Employee employee) {
 		// 事物对象
 		Transaction transaction = null;
 		String hql = "";
@@ -20,11 +20,11 @@ public class EmployeeDAO {
 					.openSession();
 			// 开启事务
 			transaction = session.beginTransaction();
-			hql = "from Employeeid where name=? and password=?";
+			hql = "from Employee where name=? and password=?";
 			Query query = session.createQuery(hql);
 			// 传入hql中两个占位符的参数
-			query.setParameter(0, employeeid.getName());
-			query.setParameter(1, employeeid.getPassword());
+			query.setParameter(0, employee.getName());
+			query.setParameter(1, employee.getPassword());
 			List list = query.list();
 			// 提交事务,必须在返回之前
 			transaction.commit();

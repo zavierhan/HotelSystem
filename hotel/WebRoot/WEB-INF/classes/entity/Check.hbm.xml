@@ -10,7 +10,7 @@
             <column name="checkid" />
             <generator class="identity" />
         </id>
-        <many-to-one name="employeeid" class="entity.Employeeid" fetch="select">
+        <many-to-one name="employee" class="entity.Employee" fetch="select">
             <column name="employeeid" />
         </many-to-one>
         <many-to-one name="room" class="entity.Room" fetch="select">
