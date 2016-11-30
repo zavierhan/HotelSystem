@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <% String loginEmployeeName=(String)session.getAttribute("loginemployeeName"); %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -18,8 +19,8 @@
         </div>
         <div class="top-info-wrap">
             <ul class="top-info-list clearfix">        
-                 <li><a href="/dbfinal/Customerindex.jsp">注册</a></li>
-                <li><a href="Customer_logout.action">登录</a></li>
+                <li><%= loginEmployeeName %>,欢迎你&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                <li><a href="Employee_logout.action">退出</a></li>
             </ul>
         </div>
     </div>
@@ -33,10 +34,11 @@
             <ul class="sidebar-list">
                 <li>
                     <ul class="sub-menu">
-                        <li><a href="Customer_querySeller.action"><i class="icon-font"></i>查询房间信息</a></li>
-                        <li><a href="Customer_queryContract.action"><i class="icon-font"></i>查询预订信息</a></li>
-                        <li><a href="Customer_queryBill.action"><i class="icon-font"></i>申请退房</a></li>
-                        <li><a href="Customer_queryRepayment.action"><i class="icon-font"></i>住宿评价</a></li>
+                        <li><a href="Employee_queryHomeStatus.action"><i class="icon-font"></i>查询房间状态</a></li>
+                        <li><a href="Employee_dealOrder.action"><i class="icon-font"></i>处理预定订单</a></li>
+                        <li><a href="Employee_dealLivein.action"><i class="icon-font"></i>处理入住申请</a></li>
+                        <li><a href="Employee_NowStatus.action"><i class="icon-font"></i>查看目前住房状态</a></li>    
+                        <li><a href="Employee_updateRoom.action"><i class="icon-font"></i>修改房间信息</a></li>
                     </ul>
                 </li>
             </ul>
@@ -45,37 +47,28 @@
     <!--/sidebar-->
     <div class="main-wrap">
         <div class="crumb-wrap">
-            <div class="crumb-list"><i class="icon-font">&#xe06b;</i><span>请先登录或者注册才能使用完整功能</span></div>
+            <div class="crumb-list"><i class="icon-font">&#xe06b;</i><span>员工进行操作前请先阅读员工使用须知</span></div>
         </div>
         <div class="result-wrap">
             <div class="result-title">
-                <h1>612酒店简介</h1>
+                <h1>员工使用须知：</h1>
             </div>
             <div class="result-content">
                 <ul class="sys-info-list">
                     <li>
-                        <label class="res-lab">1、</label><span class="res-info">每位客户可以查询责任销售人员信息；</span>
+                        <label class="res-lab">1、</label><span class="res-info">员工可以查询所有房间当前的状态；</span>
                     </li>
                     <li>
-                        <label class="res-lab">2、</label><span class="res-info">合同信息记录所有签订的合同资料；</span>
+                        <label class="res-lab">2、</label><span class="res-info">当客户预订房间后员工可以处理预订申请；</span>
                     </li>
                     <li>
-                        <label class="res-lab">3、</label><span class="res-info">每份合同对应一份账单；</span>
+                        <label class="res-lab">3、</label><span class="res-info">用户可以提出入住申请供员工处理；</span>
                     </li>
                     <li>
-                        <label class="res-lab">4、</label><span class="res-info">每次回款将生成一张回款记录表；</span>
+                        <label class="res-lab">4、</label><span class="res-info">员工可以查看当前的房间住宿信息；</span>
                     </li>
                     <li>
-                        <label class="res-lab">5、</label><span class="res-info">用户可以修改个人基本信息；</span>
-                    </li>
-                    <li>
-                        <label class="res-lab">6、</label><span class="res-info">点击客户还款可以进行还款操作；</span>
-                    </li>
-                    <li>
-                        <label class="res-lab">7、</label><span class="res-info">请在合同到期之前将欠款还清；</span>
-                    </li>
-                     <li>
-                        <label class="res-lab">8、</label><span class="res-info">本系统最终解释权归软件制作者所有。</span>
+                        <label class="res-lab">5、</label><span class="res-info">员工可以修改未入住房间的具体信息。</span>
                     </li>
                 </ul>
             </div>

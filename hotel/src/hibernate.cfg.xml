@@ -17,6 +17,9 @@
 		<property name="connection.driver_class">
 			com.mysql.jdbc.Driver
 		</property>
+	    <property name="show_sql">true</property>
+		<property name="format_sql">true</property>
+		
 		<property name="myeclipse.connection.profile">hoteldb</property>
 		<mapping resource="entity/User.hbm.xml" />
 		<mapping resource="entity/Order.hbm.xml" />

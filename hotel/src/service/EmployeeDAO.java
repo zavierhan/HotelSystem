@@ -8,6 +8,7 @@ import org.hibernate.Transaction;
 
 import util.HibernateSessionFactory;
 import entity.Employee;
+import entity.Room;
 
 public class EmployeeDAO {
 	// 员工登录
@@ -38,6 +39,55 @@ public class EmployeeDAO {
 			e.printStackTrace();
 			transaction.rollback();
 			return false;
+		} finally {
+			if (transaction != null) {
+				transaction = null;
+			}
+		}
+	}
+
+	// 查询酒店所有房间信息
+	public List<Room> queryAllHome() {
+		Transaction transaction = null;
+		List<Room> rlist = null;
+		String hqlString = "";
+		try {
+			Session session = HibernateSessionFactory.getSession();
+			transaction = session.beginTransaction();
+			hqlString = " from Room";
+			Query query = session.createQuery(hqlString);
+			rlist = query.list();
+			transaction.commit();
+			return rlist;
+		} catch (Exception e) {
+			e.printStackTrace();
+			transaction.rollback();
+			return rlist;
+		} finally {
+			if (transaction != null) {
+				transaction = null;
+			}
+		}
+	}
+
+	// 查询指定类型房间信息
+	public List<Room> queryOneTypeHome(String roomtype, String status) {
+		Transaction transaction = null;
+		List<Room> rlist = null;
+		String hqlString = "";
+		try {
+			Session session = HibernateSessionFactory.getSession();
+			transaction = session.beginTransaction();
+			hqlString = "from Room where roomtype in('" + roomtype
+					+ "')and status in('" + status + "')";
+			Query query = session.createQuery(hqlString);
+			rlist = query.list();
+			transaction.commit();
+			return rlist;
+		} catch (Exception e) {
+			e.printStackTrace();
+			transaction.rollback();
+			return rlist;
 		} finally {
 			if (transaction != null) {
 				transaction = null;
