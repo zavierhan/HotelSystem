@@ -49,6 +49,13 @@ public class User implements java.io.Serializable {
 		return this.userid;
 	}
 
+	@Override
+	public String toString() {
+		return "User [userid=" + userid + ", name=" + name + ", idnumber="
+				+ idnumber + ", password=" + password + ", phone=" + phone
+				+ "]";
+	}
+
 	public void setUserid(Integer userid) {
 		this.userid = userid;
 	}

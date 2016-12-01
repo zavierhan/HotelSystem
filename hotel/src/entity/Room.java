@@ -46,6 +46,13 @@ public class Room implements java.io.Serializable {
 
 	// Property accessors
 
+	@Override
+	public String toString() {
+		return "Room [roomid=" + roomid + ", roomnumber=" + roomnumber
+				+ ", roomtype=" + roomtype + ", price=" + price + ", status="
+				+ status + "]";
+	}
+
 	public Integer getRoomid() {
 		return this.roomid;
 	}

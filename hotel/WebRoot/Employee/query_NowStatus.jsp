@@ -39,7 +39,7 @@
                         <li><a href="Employee_dealOrder.action"><i class="icon-font"></i>处理预定订单</a></li>
                         <li><a href="Employee_dealLivein.action"><i class="icon-font"></i>处理入住</a></li>
                         <li><a href="Employee_NowStatus.action"><i class="icon-font"></i>查看目前住房状态</a></li>
-                         <li><a href="Employee_historyStatus.action"><i class="icon-font"></i>查看历史入住信息</a></li>     
+                        <li><a href="Employee_historyStatus.action"><i class="icon-font"></i>查看历史入住信息</a></li>    
                         <li><a href="Employee_updateRoom.action"><i class="icon-font"></i>修改房间信息</a></li>
                     </ul>
                 </li>
@@ -53,57 +53,38 @@
             <i class="icon-font"></i>
             <a href="Employee_returnToIndex.action">首页</a>
             <span class="crumb-step">&gt;</span>
-            <span class="crumb-name">查询所有房间状态</span>
+            <span class="crumb-name">查看目前住房状态</span>
             </div>
-           </div>
-           <div class="search-wrap">
-            <div class="search-content">
-                <form action="Employee_queryOneTypeHome.action" method="post">
-                    <table class="search-tab">
-                        <tr>
-                            <th width="120">选择房间类型:</th>
-                            <td>
-                                <select name="roomtype" id="1">
-                                    <option value="*" >全部</option>
-                                    <option value="单人房">单人房</option>
-                                    <option value="双人房">双人房</option>
-                                    <option value="大床房">大床房</option>
-                                    <option value="电脑房">电脑房</option>
-                                    <option value="经济房">经济房</option>
-                                </select>
-                            </td>
-                            <th width="120">选择入住情况:</th>
-                            <td>
-                                <select name="status" id="2">
-                                    <option value="*" >全部</option>
-                                    <option value="空房">空房</option>
-                                    <option value="非空">非空</option>          
-                                </select>
-                            </td>
-                            <td><input class="btn btn-primary btn2" name="sub" value="查询" type="submit"></td>
-                        </tr>
-                    </table>
-                </form>
-            </div>
-        </div>
+           </div>      
         <div class="result-wrap">
+                     <div class="result-title">
+                <h1><i class="icon-font">&#xe00a;&nbsp;</i>目前在住人员房间信息如下：</h1>
+            </div> 
             <form action="#" method="post" id="myform" name="myform">
                 <div class="config-items">                   
                     <div class="result-content">
                         <table width="100%" class="insert-tab">
                          <tr >
+									<td>入住人姓名</td>
+									<td>入住人电话</td>
+									<td>入住时间</td>
+									<td>离开时间</td>
+									<td>房间类型</td>
 									<td>房间号</td>
-									<td>房间种类</td>
-									<td>价格(元/晚)</td>
-									<td>目前入住状态</td>								
+									<td>入住状态</td>
+									<td>退房操作</td>								
 						 </tr>
 						 <!-- 遍历开始 -->
-						 <s:iterator value="#request.AllHome_list" var="AllHome">
+						 <s:iterator value="#session.NowStatusList" var="NowStatus">
 								<tr class="list">
-									<td><s:property value="#AllHome.roomnumber" /></td>
-									<td><s:property value="#AllHome.roomtype" /></td>
-                                    <td><s:property value="#AllHome.price" /></td>
-									<td><s:property value="#AllHome.status" /></td>
+								    <td><s:property value="#NowStatus.user.name" /></td>
+									<td><s:property value="#NowStatus.user.phone" /></td>
+									<td><s:date name="#NowStatus.timein" format="yyyy年MM月dd日"/></td>
+									<td><s:date name="#NowStatus.timeout" format="yyyy年MM月dd日"/></td>
+									<td><s:property value="#NowStatus.room.roomtype" /></td>
+									<td><s:property value="#NowStatus.room.roomnumber" /></td>
+									<td><s:property value="#NowStatus.status" /></td>
+									<td><a href="Employee_LeaveRoom.action?leaveRoomnumber=<s:property value="#NowStatus.room.roomnumber"/>" class="btn btn-primary btn2"  >退房</a></td>
 								</tr>
 						 </s:iterator>
 						 <!-- 遍历结束 -->

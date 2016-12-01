@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <% String loginEmployeeName=(String)session.getAttribute("loginemployeeName"); %>
+    <%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -46,33 +47,50 @@
         </div>
     </div>
     <!--/sidebar-->
-    <div class="main-wrap">
-        <div class="crumb-wrap">
-            <div class="crumb-list"><i class="icon-font">&#xe06b;</i><span>员工进行操作前请先阅读员工使用须知</span></div>
-        </div>
+        <div class="main-wrap">
+          <div class="crumb-wrap">
+            <div class="crumb-list">
+            <i class="icon-font"></i>
+            <a href="Employee_returnToIndex.action">首页</a>
+            <span class="crumb-step">&gt;</span>
+            <span class="crumb-name">查看历史入住信息</span>
+            </div>
+           </div>
+   
         <div class="result-wrap">
-            <div class="result-title">
-                <h1>员工使用须知：</h1>
-            </div>
-            <div class="result-content">
-                <ul class="sys-info-list">
-                    <li>
-                        <label class="res-lab">1、</label><span class="res-info">员工可以查询所有房间当前的状态；</span>
-                    </li>
-                    <li>
-                        <label class="res-lab">2、</label><span class="res-info">当客户预订房间后员工可以处理预订申请；</span>
-                    </li>
-                    <li>
-                        <label class="res-lab">3、</label><span class="res-info">用户可以提出入住申请供员工处理；</span>
-                    </li>
-                    <li>
-                        <label class="res-lab">4、</label><span class="res-info">员工可以查看当前的房间住宿信息；</span>
-                    </li>
-                    <li>
-                        <label class="res-lab">5、</label><span class="res-info">员工可以修改未入住房间的具体信息。</span>
-                    </li>
-                </ul>
-            </div>
+             <div class="result-title">
+                <h1><i class="icon-font">&#xe00a;&nbsp;</i>工作人员不得擅自将客户信息移交他人：</h1>
+            </div>  
+            <form action="#" method="post" id="myform" name="myform">
+                <div class="config-items">                   
+                    <div class="result-content">
+                        <table width="100%" class="insert-tab">
+                         <tr >
+									<td>入住人姓名</td>
+									<td>入住人电话</td>
+									<td>入住人身份证号</td>
+									<td>入住房间号</td>
+									<td>房间类型</td>
+									<td>入住时间</td>
+									<td>离开时间</td>								
+						 </tr>
+						 <!-- 遍历开始 -->
+						 <s:iterator value="#session.HistoryList" var="history">
+								<tr class="list">
+									<td><s:property value="#history.user.name" /></td>
+									<td><s:property value="#history.user.phone" /></td>
+                                    <td><s:property value="#history.user.idnumber" /></td>
+									<td><s:property value="#history.room.roomnumber" /></td>								
+									<td><s:property value="#history.room.roomtype" /></td>
+									<td><s:date name="#history.timein" format="yyyy年MM月dd日"/></td>
+									<td><s:date name="#history.timeout" format="yyyy年MM月dd日"/></td>								
+								</tr>
+						 </s:iterator>
+						 <!-- 遍历结束 -->
+                         </table>
+                    </div>
+                </div>              
+            </form>
         </div>
     </div>
 </div>

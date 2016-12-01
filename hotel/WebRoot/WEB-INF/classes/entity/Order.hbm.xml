@@ -22,8 +22,8 @@
         <property name="timeout" type="java.util.Date">
             <column name="timeout" length="10" />
         </property>
-        <property name="status" type="java.lang.Integer">
-            <column name="status" />
+        <property name="status" type="java.lang.String">
+            <column name="status" length="10" />
         </property>
     </class>
 </hibernate-mapping>

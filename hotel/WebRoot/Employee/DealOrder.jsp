@@ -1,3 +1,4 @@
+<%@page import="entity.Order"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <% String loginEmployeeName=(String)session.getAttribute("loginemployeeName"); %>
@@ -53,57 +54,36 @@
             <i class="icon-font"></i>
             <a href="Employee_returnToIndex.action">首页</a>
             <span class="crumb-step">&gt;</span>
-            <span class="crumb-name">查询所有房间状态</span>
+            <span class="crumb-name">处理预定订单</span>
             </div>
            </div>
-           <div class="search-wrap">
-            <div class="search-content">
-                <form action="Employee_queryOneTypeHome.action" method="post">
-                    <table class="search-tab">
-                        <tr>
-                            <th width="120">选择房间类型:</th>
-                            <td>
-                                <select name="roomtype" id="1">
-                                    <option value="*" >全部</option>
-                                    <option value="单人房">单人房</option>
-                                    <option value="双人房">双人房</option>
-                                    <option value="大床房">大床房</option>
-                                    <option value="电脑房">电脑房</option>
-                                    <option value="经济房">经济房</option>
-                                </select>
-                            </td>
-                            <th width="120">选择入住情况:</th>
-                            <td>
-                                <select name="status" id="2">
-                                    <option value="*" >全部</option>
-                                    <option value="空房">空房</option>
-                                    <option value="非空">非空</option>          
-                                </select>
-                            </td>
-                            <td><input class="btn btn-primary btn2" name="sub" value="查询" type="submit"></td>
-                        </tr>
-                    </table>
-                </form>
-            </div>
-        </div>
         <div class="result-wrap">
-            <form action="#" method="post" id="myform" name="myform">
+                     <div class="result-title">
+                <h1><i class="icon-font">&#xe00a;&nbsp;</i>请选择同意预定的订单：</h1>
+            </div> 
+            <form action="Employee_confirmOrder.action" method="post" id="myform" name="confirmOrderList">
                 <div class="config-items">                   
                     <div class="result-content">
                         <table width="100%" class="insert-tab">
                          <tr >
-									<td>房间号</td>
-									<td>房间种类</td>
-									<td>价格(元/晚)</td>
-									<td>目前入住状态</td>								
+									<td>预订人姓名</td>
+									<td>预订人电话</td>
+									<td>预定房间类型</td>
+									<td>分配房间号</td>
+									<td>入住时间</td>
+									<td>离开时间</td>	
+									<td>操作</td>						
 						 </tr>
-						 <!-- 遍历开始 -->
-						 <s:iterator value="#request.AllHome_list" var="AllHome">
+						 <!-- 遍历开始 -->		
+						 <s:iterator value="#session.undealorderList" var="order" >
 								<tr class="list">
-									<td><s:property value="#AllHome.roomnumber" /></td>
-									<td><s:property value="#AllHome.roomtype" /></td>
-                                    <td><s:property value="#AllHome.price" /></td>
-									<td><s:property value="#AllHome.status" /></td>
+									<td><s:property value="#order.user.name" /></td>
+									<td><s:property value="#order.user.phone" /></td>
+                                    <td><s:property value="#order.room.roomtype" /></td>
+									<td><s:property value="#order.room.roomnumber" /></td>							
+									<td><s:date name="#order.timein" format="yyyy年MM月dd日"/></td>
+									<td><s:date name="#order.timeout" format="yyyy年MM月dd日"/></td>
+									<td><a href="Employee_confirmOrder.action?orderConfirmRoomnumber=<s:property value="#order.room.roomnumber"/>" class="btn btn-primary btn2"  >确认预定</a></td>							    
 								</tr>
 						 </s:iterator>
 						 <!-- 遍历结束 -->

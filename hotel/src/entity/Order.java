@@ -12,10 +12,17 @@ public class Order implements java.io.Serializable {
 
 	private Integer orderid;
 	private Room room;
+
+	@Override
+	public String toString() {
+		return "Order [orderid=" + orderid + ", timein=" + timein
+				+ ", timeout=" + timeout + ", status=" + status + "]";
+	}
+
 	private User user;
 	private Date timein;
 	private Date timeout;
-	private Integer status;
+	private String status;
 
 	// Constructors
 
@@ -24,7 +31,7 @@ public class Order implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Order(Room room, User user, Date timein, Date timeout, Integer status) {
+	public Order(Room room, User user, Date timein, Date timeout, String status) {
 		this.room = room;
 		this.user = user;
 		this.timein = timein;
@@ -74,11 +81,11 @@ public class Order implements java.io.Serializable {
 		this.timeout = timeout;
 	}
 
-	public Integer getStatus() {
+	public String getStatus() {
 		return this.status;
 	}
 
-	public void setStatus(Integer status) {
+	public void setStatus(String status) {
 		this.status = status;
 	}
 

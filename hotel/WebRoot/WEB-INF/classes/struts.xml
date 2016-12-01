@@ -13,6 +13,15 @@
         <result name="queryHomeStatus_success">/Employee/queryHomeStatus.jsp</result>
         <result name="queryOneTypeHome_success">/Employee/queryHomeStatus.jsp</result>
         <result name="Employee_returnToIndex">/Employee/EmployeeIndex.jsp</result>
+        <result name="goto_dealOrder_success">/Employee/DealOrder.jsp</result>
+        <result name="confirmOrder_success">/Employee/EmployeeIndex.jsp</result>
+        <result name="query_NowStatus_success">/Employee/query_NowStatus.jsp</result>
+        <result name="goto_dealLivein">/Employee/dealLivein.jsp</result>
+        <result name="goto_updateRoom">/Employee/updateRoom.jsp</result>
+        <result name="confirmLiveIn_success">/Employee/EmployeeIndex.jsp</result>
+        <result name="LeaveRoom_success">/Employee/EmployeeIndex.jsp</result>
+        <result name="historyStatus_success">/Employee/HistoryMessage.jsp</result>
+        <result name="updateOneRoom_success">/Employee/EmployeeIndex.jsp</result>
    </action>
  </package>
 </struts>    

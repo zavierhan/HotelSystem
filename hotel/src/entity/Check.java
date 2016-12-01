@@ -16,7 +16,7 @@ public class Check implements java.io.Serializable {
 	private User user;
 	private Date timein;
 	private Date timeout;
-	private Integer status;
+	private String status;
 
 	// Constructors
 
@@ -24,9 +24,16 @@ public class Check implements java.io.Serializable {
 	public Check() {
 	}
 
+	@Override
+	public String toString() {
+		return "Check [employee=" + employee + ", room=" + room + ", user="
+				+ user + ", timein=" + timein + ", timeout=" + timeout
+				+ ", status=" + status + "]";
+	}
+
 	/** full constructor */
 	public Check(Employee employee, Room room, User user, Date timein,
-			Date timeout, Integer status) {
+			Date timeout, String status) {
 		this.employee = employee;
 		this.room = room;
 		this.user = user;
@@ -85,11 +92,11 @@ public class Check implements java.io.Serializable {
 		this.timeout = timeout;
 	}
 
-	public Integer getStatus() {
+	public String getStatus() {
 		return this.status;
 	}
 
-	public void setStatus(Integer status) {
+	public void setStatus(String status) {
 		this.status = status;
 	}
 

@@ -13,6 +13,13 @@ public class Employee implements java.io.Serializable {
 
 	private Integer employeeid;
 	private String name;
+
+	@Override
+	public String toString() {
+		return "Employee [employeeid=" + employeeid + ", name=" + name
+				+ ", password=" + password + "]";
+	}
+
 	private String password;
 	private Set checks = new HashSet(0);
 
