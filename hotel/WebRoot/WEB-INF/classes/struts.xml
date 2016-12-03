@@ -3,7 +3,16 @@
 <struts>
  <package name="employee" extends="struts-default">
    <action name="*_*" class="action.{1}Action" method="{2}" >
-        <result name="returnToIndex">/index.jsp</result>
+        <result name="returnToIndex1">/userindex.jsp</result>
+        <result name="goto_register">User/user_register.jsp</result>
+        <result name="saveRegister_success">User/user_registerindex.jsp</result>
+        <result name="logout_success">/userindex.jsp</result>    
+        <result name="viewRoom_success">User/user_viewRoom.jsp</result>
+        <result name="Firstuser_queryOneTypeHome_success">User/user_viewRoom.jsp</result>
+        <result name="queryMessage_success">User/user_queryMessage.jsp</result>
+        <result name="goto_login">User/user_login.jsp</result>
+        <result name="user_login_success">User/user_registerindex.jsp</result>
+        <result name="user_login_faliure">User/user_login.jsp</result>
         <!--******************以上为用户请求的处理**********************************-->
         <!--********************************************************************-->
         <!--******************以下为员工请求的处理********************************-->

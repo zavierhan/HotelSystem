@@ -32,6 +32,14 @@ public class User implements java.io.Serializable {
 		this.password = password;
 	}
 
+	public User(String name, String idnumber, String password, String phone) {
+		super();
+		this.name = name;
+		this.idnumber = idnumber;
+		this.password = password;
+		this.phone = phone;
+	}
+
 	/** full constructor */
 	public User(String name, String idnumber, String password, String phone,
 			Set orders, Set checks) {

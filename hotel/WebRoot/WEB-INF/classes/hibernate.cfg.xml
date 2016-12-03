@@ -26,6 +26,8 @@
 		<mapping resource="entity/Check.hbm.xml" />
 		<mapping resource="entity/Employee.hbm.xml" />
 		<mapping resource="entity/Room.hbm.xml" />
+		<mapping resource="entity/Remainroom.hbm.xml" />
+		<mapping resource="entity/Description.hbm.xml" />
 
 	</session-factory>
 
