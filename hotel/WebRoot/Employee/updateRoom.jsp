@@ -6,6 +6,19 @@
 <html>
 <head>
     <title>酒店后台管理系统</title>
+    <script type="text/javascript">
+    function check() {
+ 	   if(!isNumber(document.forms.myform.price.value)){
+ 		   alert("房间价格请按要求输入数字");
+ 		  document.forms.myform.price.focus();
+ 		   return false;
+ 	   }	   
+ }
+    function isNumber(number){
+    	 var re = new RegExp(/^(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*))$/);
+    	  return re.test(number);
+        } 
+</script>
     <link rel="stylesheet" type="text/css" href="css/common.css"/>
     <link rel="stylesheet" type="text/css" href="css/main.css"/>
     <script type="text/javascript" src="js/libs/modernizr.min.js"></script>
@@ -75,11 +88,12 @@
                                 <tr>
                                     <th><i class="require-red"></i>房间类型：</th>
                                     <td><select name="roomtype" id="catid" class="required">
-                                    <option value="大床房">大床房</option>
-                                    <option value="双人房">双人房</option>
                                     <option value="单人房">单人房</option>
+                                    <option value="双人房">双人房</option>
+                                    <option value="大床房">大床房</option>
+                                    <option value="电脑房">电脑房</option>                                    
                                     <option value="经济房">经济房</option>
-                                    <option value="电脑房">电脑房</option>
+                                    
                                 </select></td>
                                 </tr>
                                 <tr>
@@ -90,7 +104,7 @@
                                     <th></th>
                                     <td>
                                         <input type="hidden" value="siteConf.inc.php" name="file">
-                                        <input type="submit" value="提交" class="btn btn-primary btn6 mr10" >
+                                        <input type="submit" value="提交" class="btn btn-primary btn6 mr10" onclick="return check(this)">
                                         <input type="button" value="返回" onclick="history.go(-1)" class="btn btn6" >
                                     </td>
                                 </tr>

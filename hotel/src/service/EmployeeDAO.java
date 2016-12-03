@@ -56,7 +56,7 @@ public class EmployeeDAO {
 		try {
 			Session session = HibernateSessionFactory.getSession();
 			transaction = session.beginTransaction();
-			hqlString = " from Room";
+			hqlString = "from Room";
 			Query query = session.createQuery(hqlString);
 			rlist = query.list();
 			transaction.commit();

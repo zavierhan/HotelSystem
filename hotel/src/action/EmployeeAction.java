@@ -42,10 +42,11 @@ public class EmployeeAction extends SuperAction implements
 	public String queryHomeStatus() {
 		EmployeeDAO employeeDAO = new EmployeeDAO();
 		List<Room> rlist = employeeDAO.queryAllHome();
-		// 放进session中
+		// 放进request中
 		if (rlist != null) {
 			// session.setAttribute("AllHome_list", rlist);
 			request.setAttribute("AllHome_list", rlist);
+			System.out.println(rlist.get(1).getPrice());
 		}
 		return "queryHomeStatus_success";
 	}
