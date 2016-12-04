@@ -1,7 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@page import="entity.User"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
   <% String loginUserName=(String)session.getAttribute("user_name"); %>
+  <% User user=(User)session.getAttribute("user_self"); %>
+  <%@ taglib prefix="s" uri="/struts-tags" %>
 <html>
 <head>
     <title>欢迎光临612酒店</title>
@@ -46,36 +49,51 @@
         </div>
     </div>
     <!--/sidebar-->
-    <div class="main-wrap">
-        <div class="crumb-wrap">
-            <div class="crumb-list"><i class="icon-font">&#xe06b;</i><span>欢迎您光临612酒店，祝您旅途愉快</span></div>
-        </div>
+            <div class="main-wrap">
+          <div class="crumb-wrap">
+            <div class="crumb-list">
+            <i class="icon-font"></i>
+            <a href="User_returnToIndex2.action">首页</a>
+            <span class="crumb-step">&gt;</span>
+            <span class="crumb-name">未评价订单</span>
+            </div>
+           </div>
         <div class="result-wrap">
-            <div class="result-title">
-                <h1>612酒店简介</h1>
-            </div>
-            <div class="result-content">
-                <ul class="sys-info-list">
-                    <li>
-                        <label class="res-lab">1、</label><span class="res-info">612酒店为武汉理工大学投资成立的五星级国际酒店；</span>
-                    </li>
-                    <li>
-                        <label class="res-lab">2、</label><span class="res-info">本店拥有五种房型，方便您进行多元化的选择；</span>
-                    </li>
-                    <li>
-                        <label class="res-lab">3、</label><span class="res-info">为了您的使用体验以及酒店住房安全，请您先注册录入身份信息；</span>
-                    </li>
-                    <li>
-                        <label class="res-lab">4、</label><span class="res-info">注册成功后，我们将会对您的身份信息严格保密；</span>
-                    </li>
-                    <li>
-                        <label class="res-lab">7、</label><span class="res-info">最后再次感谢您对612酒店的支持；</span>
-                    </li>
-                     <li>
-                        <label class="res-lab">8、</label><span class="res-info">本系统最终解释权归612酒店所有。</span>
-                    </li>
-                </ul>
-            </div>
+                     <div class="result-title">
+                <h1><i class="icon-font">&#xe00a;&nbsp;</i>以下为您未作出评价的酒店订单：</h1>
+            </div> 
+            <form action="User_giveOneComment.action" method="post" id="myform" name="myform">
+                <div class="config-items">                   
+                    <div class="result-content">
+                        <table width="100%" class="insert-tab">
+                         <tr >
+									<td>入住人姓名</td>
+									<td>预留电话</td>									
+									<td>入住房间号</td>
+									<td>房间类型</td>
+									<td>入住时间</td>
+									<td>离开时间</td>	
+									<td>状态</td>
+									<td>操作</td> 								
+						 </tr>
+						 <!-- 遍历开始 -->
+						 <s:iterator value="#session.UnCommentList" var="history">
+								<tr class="list">
+									<td><s:property value="#history.user.name" /></td>
+									<td><s:property value="#history.user.phone" /></td>                                   
+									<td><s:property value="#history.room.roomnumber" /></td>								
+									<td><s:property value="#history.room.roomtype" /></td>
+									<td><s:date name="#history.timein" format="yyyy年MM月dd日"/></td>
+									<td><s:date name="#history.timeout" format="yyyy年MM月dd日"/></td>
+									<td><s:property value="#history.status" /></td>	
+									<td><a href="User_giveOneComment.action?UnCommentCheckId=<s:property value="#history.checkid"/>" class="btn btn-primary btn2"  >评价</a></td>	 						
+								</tr>
+						 </s:iterator>
+						 <!-- 遍历结束 -->
+                         </table>
+                    </div>
+                </div>              
+            </form>
         </div>
     </div>
 </div>

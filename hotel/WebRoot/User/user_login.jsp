@@ -18,7 +18,7 @@
         </div>
         <div class="top-info-wrap">
             <ul class="top-info-list clearfix">        
-                 <li><a href="User_register.action">注册</a></li>
+                 <li><a href="User_goto_register.action">注册</a></li>
                 <li><a href="User_login.action">登录</a></li>
             </ul>
         </div>
@@ -43,7 +43,7 @@
     <!--/sidebar-->
     <div class="main-wrap">
         <div class="crumb-wrap">
-            <div class="crumb-list"><i class="icon-font"></i><a href="User_returnToIndex1.action">首页</a><span class="crumb-step">&gt;</span><span class="crumb-name">系统设置</span></div>
+            <div class="crumb-list"><i class="icon-font"></i><a href="User_returnToIndex1.action">首页</a><span class="crumb-step">&gt;</span><span class="crumb-name">用户登录</span></div>
         </div>
         <div class="result-wrap">
             <form action="User_loginSuccess.action" method="post" id="myform" name="myform">

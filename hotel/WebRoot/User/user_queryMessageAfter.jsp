@@ -1,7 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@page import="entity.User"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
   <% String loginUserName=(String)session.getAttribute("user_name"); %>
+  <% User user=(User)session.getAttribute("user_self"); %>
+  <%@ taglib prefix="s" uri="/struts-tags" %>
 <html>
 <head>
     <title>欢迎光临612酒店</title>
@@ -46,36 +49,43 @@
         </div>
     </div>
     <!--/sidebar-->
-    <div class="main-wrap">
-        <div class="crumb-wrap">
-            <div class="crumb-list"><i class="icon-font">&#xe06b;</i><span>欢迎您光临612酒店，祝您旅途愉快</span></div>
-        </div>
+            <div class="main-wrap">
+          <div class="crumb-wrap">
+            <div class="crumb-list">
+            <i class="icon-font"></i>
+            <a href="User_returnToIndex2.action">首页</a>
+            <span class="crumb-step">&gt;</span>
+            <span class="crumb-name">查看酒店评价</span>
+            </div>
+           </div>
         <div class="result-wrap">
-            <div class="result-title">
-                <h1>612酒店简介</h1>
-            </div>
-            <div class="result-content">
-                <ul class="sys-info-list">
-                    <li>
-                        <label class="res-lab">1、</label><span class="res-info">612酒店为武汉理工大学投资成立的五星级国际酒店；</span>
-                    </li>
-                    <li>
-                        <label class="res-lab">2、</label><span class="res-info">本店拥有五种房型，方便您进行多元化的选择；</span>
-                    </li>
-                    <li>
-                        <label class="res-lab">3、</label><span class="res-info">为了您的使用体验以及酒店住房安全，请您先注册录入身份信息；</span>
-                    </li>
-                    <li>
-                        <label class="res-lab">4、</label><span class="res-info">注册成功后，我们将会对您的身份信息严格保密；</span>
-                    </li>
-                    <li>
-                        <label class="res-lab">7、</label><span class="res-info">最后再次感谢您对612酒店的支持；</span>
-                    </li>
-                     <li>
-                        <label class="res-lab">8、</label><span class="res-info">本系统最终解释权归612酒店所有。</span>
-                    </li>
-                </ul>
-            </div>
+                     <div class="result-title">
+                <h1><i class="icon-font">&#xe00a;&nbsp;</i>以下为酒店收到的所有评价：</h1>
+            </div> 
+           <form action="#" method="post" id="myform" name="myform">
+                <div class="config-items">                   
+                    <div class="result-content">
+                        <table width="100%" class="insert-tab">
+                         <tr >
+									<td>评价人</td>
+									<td>评价时间</td>
+									<td>评价房型</td>	
+									<td>评价描述</td>							
+						 </tr>
+						 <!-- 遍历开始 -->
+						 <s:iterator value="#session.Description_list" var="description">
+								<tr class="list">
+									<td><s:property value="#description.check.user.name" /></td>
+                                    <td><s:date name="#description.time" format="yyyy年MM月dd日"/></td>
+									<td><s:property value="#description.check.room.roomtype" /></td>
+									<td><s:property value="#description.content" /></td>
+								</tr>
+						 </s:iterator>
+						 <!-- 遍历结束 -->
+                         </table>
+                    </div>
+                </div>              
+            </form>
         </div>
     </div>
 </div>

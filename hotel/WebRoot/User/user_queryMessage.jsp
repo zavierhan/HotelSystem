@@ -52,6 +52,9 @@
             </div>
            </div>
         <div class="result-wrap">
+        <div class="result-title">
+                <h1><i class="icon-font">&#xe00a;&nbsp;</i>以下为酒店收到的所有评价：</h1>
+            </div> 
             <form action="#" method="post" id="myform" name="myform">
                 <div class="config-items">                   
                     <div class="result-content">

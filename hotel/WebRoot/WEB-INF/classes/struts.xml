@@ -13,6 +13,19 @@
         <result name="goto_login">User/user_login.jsp</result>
         <result name="user_login_success">User/user_registerindex.jsp</result>
         <result name="user_login_faliure">User/user_login.jsp</result>
+        <result name="goto_updateUser">User/user_updateoneself.jsp</result>
+        <result name="returnToIndex2">User/user_registerindex.jsp</result>
+        <result name="saveUpdateOne_success">User/user_registerindex.jsp</result>
+        <result name="user_queryOrder_success">User/user_queryOrder.jsp</result>
+        <result name="historyRoom_success">User/user_historyRoom.jsp</result>
+        <result name="goto_giveComment">User/user_giveComment.jsp</result>
+        <result name="giveOneComment_success">User/user_giveOneComment.jsp</result>
+        <result name="queryMessageAfter_success">User/user_queryMessageAfter.jsp</result>
+        <result name="saveComment_success">User/user_registerindex.jsp</result>
+        <result name="goto_orderRoom">User/user_orderRoom.jsp</result>
+        <result name="queryOneTypeHomeAfter_success">User/user_orderRoom.jsp</result>
+        <result name="selectOrderRoom_success">User/user_orderOneRoom.jsp</result>
+        <result name="saveOrderRoom_success">User/user_registerindex.jsp</result>
         <!--******************以上为用户请求的处理**********************************-->
         <!--********************************************************************-->
         <!--******************以下为员工请求的处理********************************-->
