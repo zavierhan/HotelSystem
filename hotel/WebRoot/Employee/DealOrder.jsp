@@ -83,7 +83,7 @@
 									<td><s:property value="#order.room.roomnumber" /></td>							
 									<td><s:date name="#order.timein" format="yyyy年MM月dd日"/></td>
 									<td><s:date name="#order.timeout" format="yyyy年MM月dd日"/></td>
-									<td><a href="Employee_confirmOrder.action?orderConfirmRoomnumber=<s:property value="#order.room.roomnumber"/>" class="btn btn-primary btn2"  >确认预定</a></td>							    
+									<td><a href="Employee_confirmOrder.action?orderConfirmid=<s:property value="#order.orderid"/>" class="btn btn-primary btn2"  >确认预定</a></td>							    
 								</tr>
 						 </s:iterator>
 						 <!-- 遍历结束 -->

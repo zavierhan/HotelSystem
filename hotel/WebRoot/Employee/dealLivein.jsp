@@ -84,7 +84,7 @@
 									<td><s:property value="#UnLive.room.roomtype" /></td>
 									<td><s:property value="#UnLive.room.roomnumber" /></td>
 									<td><s:property value="#UnLive.status" /></td>
-	                                <td><a href="Employee_confirmLiveIn.action?liveConfirmRoomnumber=<s:property value="#UnLive.room.roomnumber"/>" class="btn btn-primary btn2"  >确认入住</a></td>							
+	                                <td><a href="Employee_confirmLiveIn.action?liveConfirmcheckid=<s:property value="#UnLive.checkid"/>" class="btn btn-primary btn2"  >确认入住</a></td>							
   								</tr>
 						 </s:iterator>
 						 <!-- 遍历结束 -->

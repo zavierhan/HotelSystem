@@ -212,8 +212,8 @@ public class EmployeeDAO {
 		}
 	}
 
-	// 根据房间号查询order表信息
-	public Order queryOrderByNumber(Integer roomnumber) {
+	// 根据orderid查询order表信息
+	public Order queryOrderByID(Integer orderid) {
 		Transaction transaction = null;
 		List<Order> rlist = null;
 		Order order = null;
@@ -221,7 +221,7 @@ public class EmployeeDAO {
 		try {
 			Session session = HibernateSessionFactory.getSession();
 			transaction = session.beginTransaction();
-			hqlString = "from Order where room.roomnumber='" + roomnumber + "'";
+			hqlString = "from Order where orderid='" + orderid + "'";
 			Query query = session.createQuery(hqlString);
 			rlist = query.list();
 			order = rlist.get(0);
@@ -238,8 +238,8 @@ public class EmployeeDAO {
 		}
 	}
 
-	// 根据房间号查询check表信息
-	public Check queryChrckByNumber(Integer roomnumber) {
+	// 根据checkid查询check表信息
+	public Check queryChrckByID(Integer checkid) {
 		Transaction transaction = null;
 		List<Check> rlist = null;
 		Check check = null;
@@ -247,7 +247,7 @@ public class EmployeeDAO {
 		try {
 			Session session = HibernateSessionFactory.getSession();
 			transaction = session.beginTransaction();
-			hqlString = "from Check where room.roomnumber='" + roomnumber + "'";
+			hqlString = "from Check where checkid='" + checkid + "'";
 			Query query = session.createQuery(hqlString);
 			rlist = query.list();
 			check = rlist.get(0);

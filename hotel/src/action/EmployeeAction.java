@@ -80,8 +80,8 @@ public class EmployeeAction extends SuperAction implements
 
 	// 确认预定订单
 	public String confirmOrder() {
-		Integer roomNumberString = Integer.valueOf(request
-				.getParameter("orderConfirmRoomnumber"));
+		Integer orderid = Integer.valueOf(request
+				.getParameter("orderConfirmid"));
 		EmployeeDAO employeeDAO = new EmployeeDAO();
 		String employeeName = (String) session
 				.getAttribute("loginemployeeName");
@@ -89,7 +89,7 @@ public class EmployeeAction extends SuperAction implements
 		// .println(employeeName + "=2222222222222222222222222222222222");
 		Employee employee = employeeDAO.queryEmployeeByName(employeeName);
 		// System.out.println(employee + "=3333333333333333333333333333333");
-		Order order = employeeDAO.queryOrderByNumber(roomNumberString);
+		Order order = employeeDAO.queryOrderByID(orderid);
 
 		Check check = new Check(employee, order.getRoom(), order.getUser(),
 				order.getTimein(), order.getTimeout(), "待入住");
@@ -120,13 +120,13 @@ public class EmployeeAction extends SuperAction implements
 
 	// 确认入住
 	public String confirmLiveIn() {
-		Integer roomNumberString = Integer.valueOf(request
-				.getParameter("liveConfirmRoomnumber"));
+		Integer checkid = Integer.valueOf(request
+				.getParameter("liveConfirmcheckid"));
 		EmployeeDAO employeeDAO = new EmployeeDAO();
 		String employeeName = (String) session
 				.getAttribute("loginemployeeName");
 		Employee employee = employeeDAO.queryEmployeeByName(employeeName);
-		Check check = employeeDAO.queryChrckByNumber(roomNumberString);
+		Check check = employeeDAO.queryChrckByID(checkid);
 		check.setStatus("入住成功");
 		employeeDAO.updateCheck(check);
 		return "confirmLiveIn_success";
@@ -162,14 +162,14 @@ public class EmployeeAction extends SuperAction implements
 
 	// 确认退房
 	public String LeaveRoom() {
-		Integer roomNumberString = Integer.valueOf(request
-				.getParameter("leaveRoomnumber"));
+		Integer leavecheckid = Integer.valueOf(request
+				.getParameter("leavecheckid"));
 		EmployeeDAO employeeDAO = new EmployeeDAO();
 		String employeeName = (String) session
 				.getAttribute("loginemployeeName");
 		Employee employee = employeeDAO.queryEmployeeByName(employeeName);
-		Check check = employeeDAO.queryChrckByNumber(roomNumberString);
-		Room room = employeeDAO.queryRoomByNumber(roomNumberString);
+		Check check = employeeDAO.queryChrckByID(leavecheckid);
+		Room room = check.getRoom();
 		check.setStatus("已退房");
 		room.setStatus("空房");
 		employeeDAO.updateCheckAndRoom(check, room);

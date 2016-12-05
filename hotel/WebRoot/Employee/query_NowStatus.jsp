@@ -84,7 +84,7 @@
 									<td><s:property value="#NowStatus.room.roomtype" /></td>
 									<td><s:property value="#NowStatus.room.roomnumber" /></td>
 									<td><s:property value="#NowStatus.status" /></td>
-									<td><a href="Employee_LeaveRoom.action?leaveRoomnumber=<s:property value="#NowStatus.room.roomnumber"/>" class="btn btn-primary btn2"  >退房</a></td>
+									<td><a href="Employee_LeaveRoom.action?leavecheckid=<s:property value="#NowStatus.checkid"/>" class="btn btn-primary btn2"  >退房</a></td>
 								</tr>
 						 </s:iterator>
 						 <!-- 遍历结束 -->
